@@ -1,5 +1,5 @@
 <?php
-namespace lbs2017skeleton\models;
+namespace lbs\models;
 class Image extends \Illuminate\Database\Eloquent\Model {
 
     protected $table      = 'image';
@@ -7,7 +7,7 @@ class Image extends \Illuminate\Database\Eloquent\Model {
     public    $timestamps = false;
 
     public function sandwich() {
-        return $this->belongsTo('clbs2017skeleton\models\Sandwich',
+        return $this->belongsTo('lbs\models\Sandwich',
             's_id');
     }
 

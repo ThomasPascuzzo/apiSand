@@ -1,5 +1,11 @@
 <?php
-namespace lbs2017skeleton\control;
+namespace lbs\control;
+
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+use lbs\models\Categorie as Categorie;
+use lbs\models\Sandwich as Sandwich;
+
 class SandwichController {
     public function getCategories(Request $rq, Response $rs, array $args ) {
         
@@ -17,8 +23,8 @@ class SandwichController {
         
         $id = $args['id'];
         $c = Categorie::find($id);
-        $response->getBody()->write($c->toJson());
-        return $response;
+        $rs->getBody()->write($c->toJson());
+        return $rs;
         
         
     }
@@ -30,8 +36,8 @@ class SandwichController {
         
         $c = Categorie::where('id', '=', $id)->first();
         $liste_sand = $v->sandwich()->get() ;
-        $response->getBody()->write($liste_stand->toJson());
-        return $response;
+        $rs->getBody()->write($liste_stand->toJson());
+        return $rs;
         
         
     }
@@ -81,7 +87,7 @@ class SandwichController {
         $rq = Categorie::find($id);
         $rq->delete();
       
-        return $response->withStatus(200);
+        return $rs->withStatus(200);
     }
 }
 

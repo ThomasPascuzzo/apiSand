@@ -1,5 +1,5 @@
 <?php
-namespace lbs2017skeleton\models;
+namespace lbs\models;
 
 class Tarif extends \Illuminate\Database\Eloquent\Model {
 	protected $table = 'tarif';

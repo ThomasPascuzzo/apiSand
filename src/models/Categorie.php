@@ -1,5 +1,5 @@
 <?php
-namespace lbs2017skeleton\models;
+namespace lbs\models;
 class Categorie extends \Illuminate\Database\Eloquent\Model {
     
     protected $table      = 'categorie';
@@ -9,7 +9,7 @@ class Categorie extends \Illuminate\Database\Eloquent\Model {
     
     public function sandwichs() {
         return
-        $this->belongsToMany('lbs2017skeleton\models\Sandwich',
+        $this->belongsToMany('lbs\models\Sandwich',
             'sand2cat',
             'cat_id',
             'sand_id');

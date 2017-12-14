@@ -1,5 +1,5 @@
 <?php
-namespace lbs2017skeleton\models;
+namespace lbs\models;
 class Sandwich extends \Illuminate\Database\Eloquent\Model {
     
     protected $table      = 'sandwich';  
@@ -7,13 +7,13 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model {
     public    $timestamps = false;   
     
     public function images() {
-        return $this->hasMany('lbs2017skeleton\models\Image',
+        return $this->hasMany('lbs\models\Image',
             's_id');
     }
     
     public function categories() {
         return
-        $this->belongsToMany('lbs2017skeleton\models\Categorie',
+        $this->belongsToMany('lbs\models\Categorie',
             'sand2cat',
             'sand_id',
             'cat_id');
@@ -21,7 +21,7 @@ class Sandwich extends \Illuminate\Database\Eloquent\Model {
     
     public function tailles() {
         return
-        $this->belongsToMany('lbs2017skeleton\models\Taille',
+        $this->belongsToMany('lbs\models\Taille',
             'tarif',
             'sand_id',
             'taille_id')
